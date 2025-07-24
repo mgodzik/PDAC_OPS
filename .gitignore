@@ -2,3 +2,5 @@
 analysis/.snakemake/
 analysis/slurm/slurm_output/
 analysis/brieflow_output/
+*.ipynb_checkpoints
+nd2s/
