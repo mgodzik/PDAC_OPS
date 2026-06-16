@@ -45,32 +45,33 @@ sbs:
   cyto_index: 1
   segmentation_method: cellpose
   gpu: true
+  gpu_mem_mb: 1200
   reconcile: contained_in_cells
   segment_cells: true
   use_segmentation_images: true
   segmentation_upsample_factor: 2
   segmentation_window: 2
   df_barcode_library_fp: config/barcode_library.tsv
-  threshold_peaks: 500
+  threshold_peaks: 200
   call_reads_method: percentile
   bases:
   - G
   - T
   - A
   - C
-  q_min: 0.42
+  q_min: 0
   barcode_col: sgRNA
   prefix_col: prefix
   error_correct: true
   sort_calls: count
   mode: null
   peak_width: 5
-  nuclei_diameter: 13.727325035155395
-  cell_diameter: 43.21854245721949
+  nuclei_diameter: 13.5
+  cell_diameter: 43.1
   nuclei_flow_threshold: 0.4
   nuclei_cellprob_threshold: 0.0
   cell_flow_threshold: 0.8
-  cell_cellprob_threshold: 0
+  cell_cellprob_threshold: 0.6
   cyto_model: cyto3
 phenotype:
   foci_channel: null
@@ -90,13 +91,14 @@ phenotype:
   segmentation_method: cellpose
   reconcile: contained_in_cells
   gpu: true
+  gpu_mem_mb: 5120
   cp_method: cp_multichannel
   mode: null
-  nuclei_diameter: 62.68346859462001
-  cell_diameter: 132.7320737849024
+  nuclei_diameter: 62.7
+  cell_diameter: 132.7
   nuclei_flow_threshold: 0.4
   nuclei_cellprob_threshold: 0.0
-  cell_flow_threshold: 0.9
+  cell_flow_threshold: 0.6
   cell_cellprob_threshold: 0
   cyto_model: cyto3
   target: 1
@@ -109,3 +111,35 @@ phenotype:
   - 7
   - 8
   remove_channel: null
+merge:
+  merge_combo_fp: config/merge_combo.tsv
+  sbs_metadata_cycle: 1
+  sbs_metadata_channel: null
+  ph_metadata_channel: null
+  initial_sites:
+  - !!python/tuple
+    - 4
+    - 2
+  - !!python/tuple
+    - 86
+    - 28
+  - !!python/tuple
+    - 361
+    - 114
+  - !!python/tuple
+    - 601
+    - 211
+  - !!python/tuple
+    - 719
+    - 238
+  - !!python/tuple
+    - 875
+    - 291
+  - !!python/tuple
+    - 987
+    - 327
+  det_range:
+  - 0.056
+  - 0.076
+  score: 0.2
+  threshold: 10
